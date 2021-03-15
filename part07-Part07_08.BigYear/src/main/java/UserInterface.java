@@ -66,25 +66,18 @@ public class UserInterface {
         System.out.print("Bird? ");
         String birdName = scan.nextLine();
 
+        boolean isFind = false;
+
         for (Bird bird1 : this.birdsList) {
             if (bird1.getName().contains(birdName)) {
                 bird1.getObservations();
-            }
-
-        }
-
-        for (Bird bird1 : birdsList) {
-            if (!bird1.getName().matches(birdName)) {
-                System.out.println("Not a bird");
+                isFind = true;
             }
         }
 
-
-        /*
-        This method || the one in the Bird class needs fixing. It adds the observation but also prints out "Not a bird".
-        If you find the error, please make a pull request. All tests passed by the way but the
-        code can and should be more efficient.
-         */
+        if (!isFind) {
+            System.out.println("Not a bird!");
+        }
     }
 
     public void searchAndPrintOne() {
